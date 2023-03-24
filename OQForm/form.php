@@ -9,21 +9,13 @@
             $errors[] = "Le nom est obligatoire";
         if(!isset($_POST['user_email']) || trim($_POST['user_email']) === '') 
             $errors[] = "L'e-mail' est obligatoire";
-            elseif(filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL))
+            elseif(!filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL))
               $errors[] = "l'adresse e-mail n'a pas le bon format";
         if(!isset($_POST['user_phone']) || trim($_POST['user_phone']) === '') 
             $errors[] = "Le numéro de tél est obligatoire";
         if(!isset($_POST['user_message']) || trim($_POST['user_message']) === '') 
             $errors[] = "Veuillez entrer un message";
-
-        if(empty($errors)) {
-            
-            header('Location: thanks.php');
-        }
     }
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
